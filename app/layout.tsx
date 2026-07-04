@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Roboto } from "next/font/google";
 import "./globals.css";
+import { cn } from "@/lib/utils";
+import Navbar from "@/components/navbar/Navbar";
+import { norriex } from "@/lib/fonts";
+import LoadingScreen from "@/components/loadingscreen/LoadingScreen";
+
+const roboto = Roboto({ subsets: ["latin"], variable: "--font-sans" });
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
   subsets: ["latin"],
 });
 
@@ -25,9 +26,25 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={cn(
+        "h-full",
+        "antialiased",
+        geistSans.variable,
+        norriex.variable,
+        "font-sans",
+        roboto.variable,
+      )}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body>
+        <LoadingScreen>
+          <Navbar />
+          <main className="min-h-screen pt-22 mt-15">
+            <div className="w-[min(900px,calc(100%-2rem))] mx-auto">
+              {children}
+            </div>
+          </main>
+        </LoadingScreen>
+      </body>
     </html>
   );
 }
