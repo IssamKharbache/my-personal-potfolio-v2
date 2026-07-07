@@ -4,6 +4,10 @@ import { motion, Variants } from "framer-motion";
 import { useLoading } from "@/app/hooks/useLoading";
 import { Link } from "react-scroll";
 
+type NavbarLogoProps = {
+  onClick?: () => void;
+};
+
 const NAME = "Issam";
 const LETTER_STAGGER = 0.04;
 const LETTER_DURATION = 0.15;
@@ -31,21 +35,20 @@ const letter: Variants = {
   },
 };
 
-export default function Logo() {
+export default function Logo({ onClick }: NavbarLogoProps) {
   const { ready } = useLoading();
 
   return (
     <Link
       className="cursor-pointer"
-      to="hero"
       spy={true}
       smooth={true}
-      hashSpy={true}
-      offset={-100}
       duration={500}
-      isDynamic={true}
       ignoreCancelEvents={false}
       spyThrottle={500}
+      to="hero"
+      offset={-100}
+      onClick={onClick}
     >
       <div className="relative inline-block">
         <motion.span

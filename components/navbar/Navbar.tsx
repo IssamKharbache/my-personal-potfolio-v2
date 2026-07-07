@@ -1,10 +1,27 @@
 "use client";
-import { usePathname } from "next/navigation";
 import NavbarLogo from "../NavbarLogo";
 import { Link } from "react-scroll";
+import { useEffect, useState } from "react";
 
 const Navbar = () => {
-  const path = usePathname();
+  const [activeLink, setActiveLink] = useState("hero");
+  //use effect to clear the the scroll id when going back to the hero
+  useEffect(() => {
+    const handleScroll = () => {
+      const expertise = document.getElementById("expertise");
+
+      if (!expertise) return;
+
+      // User is above the Expertise section
+      if (window.scrollY < expertise.offsetTop - 300) {
+        setActiveLink("");
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const links = [
     {
@@ -47,33 +64,27 @@ const Navbar = () => {
   "
     >
       {/* logo*/}
-      <NavbarLogo />
+      <NavbarLogo onClick={() => setActiveLink("hero")} />
       {/* links */}
       <div className="flex gap-3">
         {links.map((link, idx) => (
           <Link
-            activeClass="active"
+            onSetActive={() => setActiveLink(link.link)}
             to={link.link}
             spy={true}
             smooth={true}
-            hashSpy={true}
-            offset={-100}
+            offset={-50}
             duration={500}
-            isDynamic={true}
             ignoreCancelEvents={false}
             spyThrottle={500}
             className={`rounded-full cursor-pointer
-    px-3
-    py-1.5
-    text-sm
-    font-medium
-    text-foreground
-    transition-all
-    duration-300
-    hover:border-primary/20
-    hover:bg-primary/5
-    hover:text-primary
-   active:border active:order-primary/20 active:bg-primary/5 active:text-primary border border-transparent
+    px-3 py-1.5 text-sm font-medium transition-all duration-300
+    hover:border-primary/20 hover:bg-primary/5 hover:text-primary
+    ${
+      activeLink === link.link
+        ? "border border-primary/20 bg-primary/5 text-primary"
+        : "border border-transparent text-foreground"
+    }
   `}
             key={idx}
           >

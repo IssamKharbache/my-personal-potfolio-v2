@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 
-export default function CompileLogo({}: { size?: string; force?: boolean }) {
+export default function CompileLogo() {
   return (
     <motion.div className="relative inline-block">
       <motion.span

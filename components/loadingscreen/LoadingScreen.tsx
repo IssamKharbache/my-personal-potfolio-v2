@@ -30,7 +30,7 @@ export default function LoadingScreen({
             style={{ background: CREAM }}
           >
             <motion.div>
-              <CompileLogo size="7xl" force />
+              <CompileLogo />
             </motion.div>
           </motion.div>
         )}

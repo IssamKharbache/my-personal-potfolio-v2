@@ -93,8 +93,6 @@ function Shell() {
   });
   return (
     <mesh ref={ref} scale={1.3}>
-      {" "}
-      {/* bigger now there's no core filling the middle */}
       <icosahedronGeometry args={[1, 1]} />
       <meshBasicMaterial color={ACCENT} wireframe transparent opacity={0.4} />
     </mesh>
