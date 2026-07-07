@@ -1,8 +1,7 @@
 "use client";
-import Link from "next/link";
-import CompileLogo from "../CompileLogo";
 import { usePathname } from "next/navigation";
 import NavbarLogo from "../NavbarLogo";
+import { Link } from "react-scroll";
 
 const Navbar = () => {
   const path = usePathname();
@@ -10,16 +9,19 @@ const Navbar = () => {
   const links = [
     {
       name: "Work",
-      link: "/work",
+      link: "work",
     },
-
+    {
+      name: "Expertise",
+      link: "expertise",
+    },
     {
       name: "About",
-      link: "/about",
+      link: "about",
     },
     {
       name: "Contact",
-      link: "/contact",
+      link: "contact",
     },
   ];
   return (
@@ -50,7 +52,17 @@ const Navbar = () => {
       <div className="flex gap-3">
         {links.map((link, idx) => (
           <Link
-            className={`rounded-full
+            activeClass="active"
+            to={link.link}
+            spy={true}
+            smooth={true}
+            hashSpy={true}
+            offset={-100}
+            duration={500}
+            isDynamic={true}
+            ignoreCancelEvents={false}
+            spyThrottle={500}
+            className={`rounded-full cursor-pointer
     px-3
     py-1.5
     text-sm
@@ -61,9 +73,8 @@ const Navbar = () => {
     hover:border-primary/20
     hover:bg-primary/5
     hover:text-primary
-    ${path === link.link ? "border border-primary/20 bg-primary/5 text-primary" : "border border-transparent"}
+   active:border active:order-primary/20 active:bg-primary/5 active:text-primary border border-transparent
   `}
-            href={link.link}
             key={idx}
           >
             {link.name}

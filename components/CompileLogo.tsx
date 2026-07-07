@@ -1,16 +1,11 @@
 "use client";
 import { motion } from "framer-motion";
 
-export default function CompileLogo({
-  size = "xl",
-}: {
-  size?: string;
-  force?: boolean;
-}) {
+export default function CompileLogo({}: { size?: string; force?: boolean }) {
   return (
     <motion.div className="relative inline-block">
       <motion.span
-        className={`font-extrabold font-heading text-${size} text-[#2D1F16]`}
+        className={`font-extrabold font-heading text-7xl text-[#2D1F16]`}
         initial={{
           filter: "contrast(1)",
           opacity: 1,

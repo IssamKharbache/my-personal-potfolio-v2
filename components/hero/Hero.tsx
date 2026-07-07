@@ -2,7 +2,6 @@
 
 import dynamic from "next/dynamic";
 import { motion, Variants } from "framer-motion";
-import { MagneticButton } from "../ui/magnetic-button";
 import { useLoading } from "@/app/hooks/useLoading";
 
 const HeroScene = dynamic(() => import("../hero/HeroScene"), { ssr: false });
@@ -45,7 +44,17 @@ export default function Hero() {
   const { ready } = useLoading();
 
   return (
-    <section className="relative flex min-h-screen items-center justify-center overflow-hidden">
+    <section
+      id="hero"
+      style={{
+        background: `
+        radial-gradient(circle at top left, #fff6e8 0%, transparent 40%),
+        radial-gradient(circle at bottom right, rgba(180,83,9,.08), transparent 35%),
+        linear-gradient(180deg, #f6e8d4 0%, #f0dec7 100%)
+      `,
+      }}
+      className="relative flex min-h-screen items-center justify-center overflow-hidden"
+    >
       {/* 3D LAYER — centered behind the text, full-bleed within the section */}
       <motion.div
         variants={scene}
@@ -68,7 +77,7 @@ export default function Hero() {
           variants={fadeUp}
           className="text-sm font-medium uppercase tracking-[0.22em] text-[#2D1F16]/55"
         >
-          Full-Stack Developer
+          Full Stack Developer
         </motion.p>
 
         <motion.h1

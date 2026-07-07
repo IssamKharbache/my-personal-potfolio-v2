@@ -1,13 +1,13 @@
 "use client";
 
-import Link from "next/link";
 import { motion, Variants } from "framer-motion";
 import { useLoading } from "@/app/hooks/useLoading";
+import { Link } from "react-scroll";
 
 const NAME = "Issam";
-const LETTER_STAGGER = 0.04; // was 0.08
-const LETTER_DURATION = 0.15; // was 0.3
-const START_DELAY = 0.3; // was 1
+const LETTER_STAGGER = 0.04;
+const LETTER_DURATION = 0.15;
+const START_DELAY = 0.3;
 
 const TYPING_DONE =
   START_DELAY + LETTER_STAGGER * (NAME.length - 1) + LETTER_DURATION;
@@ -35,7 +35,18 @@ export default function Logo() {
   const { ready } = useLoading();
 
   return (
-    <Link href="/">
+    <Link
+      className="cursor-pointer"
+      to="hero"
+      spy={true}
+      smooth={true}
+      hashSpy={true}
+      offset={-100}
+      duration={500}
+      isDynamic={true}
+      ignoreCancelEvents={false}
+      spyThrottle={500}
+    >
       <div className="relative inline-block">
         <motion.span
           variants={container}

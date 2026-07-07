@@ -129,16 +129,7 @@
   }
   body {
     color: var(--foreground);
-
-    background:
-      radial-gradient(circle at top left, #fff6e8 0%, transparent 40%),
-      radial-gradient(
-        circle at bottom right,
-        rgba(180, 83, 9, 0.08),
-        transparent 35%
-      ),
-      linear-gradient(180deg, #f6e8d4 0%, #f0dec7 100%);
-
+    background: #f6e8d4;
     min-height: 100vh;
   }
   html {
