@@ -38,11 +38,7 @@ export default function RootLayout({
       <body>
         <LoadingScreen>
           <Navbar />
-          <main className="min-h-screen pt-22 mt-15">
-            <div className="w-[min(900px,calc(100%-2rem))] mx-auto">
-              {children}
-            </div>
-          </main>
+          <div className="max-w-5xl mx-auto">{children}</div>
         </LoadingScreen>
       </body>
     </html>

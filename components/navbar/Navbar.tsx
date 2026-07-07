@@ -1,8 +1,12 @@
+"use client";
 import Link from "next/link";
-import { MagneticButton } from "../ui/magnetic-button";
 import CompileLogo from "../CompileLogo";
+import { usePathname } from "next/navigation";
+import NavbarLogo from "../NavbarLogo";
 
 const Navbar = () => {
+  const path = usePathname();
+
   const links = [
     {
       name: "Work",
@@ -40,18 +44,13 @@ const Navbar = () => {
     shadow-[0_8px_30px_rgba(45,31,22,0.06)]
   "
     >
-      {/* logo — same compile animation as the loading screen, picks up right as the loader hands off */}
-      <Link href="/">
-        <CompileLogo size="sm" />
-      </Link>
+      {/* logo*/}
+      <NavbarLogo />
       {/* links */}
       <div className="flex gap-3">
         {links.map((link, idx) => (
           <Link
-            className="
-    rounded-full
-    border
-    border-transparent
+            className={`rounded-full
     px-3
     py-1.5
     text-sm
@@ -62,7 +61,8 @@ const Navbar = () => {
     hover:border-primary/20
     hover:bg-primary/5
     hover:text-primary
-  "
+    ${path === link.link ? "border border-primary/20 bg-primary/5 text-primary" : "border border-transparent"}
+  `}
             href={link.link}
             key={idx}
           >
@@ -71,9 +71,8 @@ const Navbar = () => {
         ))}
       </div>
       <div className="flex items-center">
-        <MagneticButton>
-          <button
-            className="
+        <button
+          className="
         group
         relative
         inline-flex
@@ -90,22 +89,22 @@ const Navbar = () => {
         duration-300
         hover:bg-[#3A281C]
         hover:scale-[1.02]
-        active:scale-[0.98]
+        hover:cursor-pointer
+        active:scale-[1.8] 
       "
-          >
-            Let’s talk
-            <span
-              className="
+        >
+          Let’s talk
+          <span
+            className="
           text-[#F59E0B]
           transition-transform
           duration-300
           group-hover:translate-x-1
         "
-            >
-              →
-            </span>
-          </button>
-        </MagneticButton>
+          >
+            →
+          </span>
+        </button>
       </div>
     </nav>
   );
