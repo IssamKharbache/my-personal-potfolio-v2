@@ -129,7 +129,6 @@
   }
   body {
     color: var(--foreground);
-    background: #f6e8d4;
     min-height: 100vh;
   }
   html {

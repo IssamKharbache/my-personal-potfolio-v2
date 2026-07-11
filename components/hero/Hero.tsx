@@ -48,10 +48,10 @@ export default function Hero() {
       id="hero"
       style={{
         background: `
-        radial-gradient(circle at top left, #fff6e8 0%, transparent 40%),
-        radial-gradient(circle at bottom right, rgba(180,83,9,.08), transparent 35%),
-        linear-gradient(180deg, #f6e8d4 0%, #f0dec7 100%)
-      `,
+    radial-gradient(circle at top left, #fff6e8 0%, transparent 40%),
+    radial-gradient(circle at bottom right, rgba(180,83,9,.08), transparent 35%),
+    linear-gradient(180deg, #f6e8d4 0%, #edd9bd 100%)
+  `,
       }}
       className="relative flex min-h-screen items-center justify-center overflow-hidden"
     >
@@ -82,7 +82,7 @@ export default function Hero() {
 
         <motion.h1
           variants={fadeUp}
-          className="mx-auto mt-5 max-w-4xl font-heading text-5xl leading-[1.02] tracking-tight text-[#2D1F16] md:text-8xl"
+          className="mx-auto mt-5 max-w-4xl font-bold text-5xl leading-[1.02] tracking-tight text-[#2D1F16] md:text-8xl"
         >
           Issam
           <br />

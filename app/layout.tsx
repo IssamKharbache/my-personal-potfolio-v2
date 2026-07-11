@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Roboto } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
-import Navbar from "@/components/navbar/Navbar";
+import Navbar from "@/components/navbar/Sidebar";
 import { norriex } from "@/lib/fonts";
 import LoadingScreen from "@/components/loadingscreen/LoadingScreen";
 
@@ -38,7 +38,6 @@ export default function RootLayout({
     >
       <body>
         <LoadingScreen>
-          <Navbar />
           <div>{children}</div>
         </LoadingScreen>
       </body>

@@ -41,8 +41,14 @@ export default function Expertise() {
     <section
       id="expertise"
       className="relative overflow-hidden px-6 py-24 md:py-32"
+      style={{
+        background: `
+    radial-gradient(circle at 20% 20%, rgba(255,246,232,.75), transparent 35%),
+    radial-gradient(circle at 80% 90%, rgba(245,158,11,.08), transparent 35%),
+    linear-gradient(180deg, #edd9bd 0%, #ead4b6 50%, #e6ceb0 100%)
+  `,
+      }}
     >
-      {/* --- SOFT BACKGROUND LAYER --- */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 z-0"
@@ -93,15 +99,14 @@ export default function Expertise() {
                 stiffness: 100,
                 damping: 20,
                 mass: 0.5,
-                delay: i * 0.15, // Slightly increased delay for a smoother cascade
+                delay: i * 0.15,
               }}
-              // Base opacity-0 ensures it doesn't show before scrolling into view
-              className={`group relative flex flex-col p-8 opacity-0 transition-all duration-500 ease-out hover:-translate-y-1 md:mt-0 border-dashed border-2 border-white/40 ${
+              className={`group relative flex flex-col p-8 opacity-0 transition-all duration-500 ease-out hover:-translate-y-1 md:mt-0 border-dashed border-2 border-black ${
                 i % 2 !== 0 ? "md:mt-16" : ""
               }`}
             >
               {/* Soft, borderless card background that only appears on hover */}
-              <div className="absolute inset-0 z-0 bg-white/20 opacity-0 shadow-[0_20px_50px_-20px_rgba(45,31,22,0.15)] backdrop-blur-sm transition-opacity duration-500 ease-out group-hover:opacity-100" />
+              <div className="absolute inset-0 z-0 bg-primary/20 opacity-0 shadow-[0_20px_50px_-20px_rgba(45,31,22,0.15)] backdrop-blur-sm transition-opacity duration-500 ease-out group-hover:opacity-100" />
 
               {/* Content Layer */}
               <div className="relative z-10 flex h-full flex-col">
@@ -114,7 +119,7 @@ export default function Expertise() {
                     className="text-[#2D1F16] transition-colors duration-500 group-hover:text-[#F59E0B]"
                   />
                   {/* Ghost number - much more vibrant on hover */}
-                  <span className="text-5xl font-bold tracking-tighter text-[#2D1F16]/5 transition-colors duration-500 group-hover:text-[#F59E0B]/30">
+                  <span className="text-5xl font-bold tracking-tighter text-[#2D1F16]/5 transition-colors duration-500 group-hover:text-[#F59E0B]">
                     0{i + 1}
                   </span>
                 </div>
