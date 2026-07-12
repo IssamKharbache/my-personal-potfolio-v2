@@ -2,12 +2,19 @@
 
 import { useState, useEffect } from "react";
 import { Link } from "react-scroll";
+import NextLink from "next/link";
 import NavbarLogo from "@/components/NavbarLogo";
-import { CodeXml, Folder, House } from "lucide-react";
+import { Folder, House, SquareTerminal } from "lucide-react";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 const links = [
   { name: "Home", link: "hero", number: "01", icon: House },
-  { name: "Expertise", link: "expertise", number: "02", icon: CodeXml },
+  {
+    name: "Expertise",
+    link: "expertise",
+    number: "02",
+    icon: SquareTerminal,
+  },
   { name: "Work", link: "work", number: "03", icon: Folder },
 ] as const;
 
@@ -59,7 +66,7 @@ const SidebarNavbar = () => {
                     <Icon
                       className={`text-xs font-medium ${
                         isActive
-                          ? "text-amber-500 fill-amber-500 scale-150"
+                          ? "text-amber-500  scale-150"
                           : "text-slate-300 group-hover:text-slate-400"
                       }`}
                     />
@@ -69,7 +76,7 @@ const SidebarNavbar = () => {
                   <span
                     className={`font-medium   py-5 px-5  ${
                       isActive
-                        ? "text-slate-900 text-2xl font-bold"
+                        ? "text-amber-500 text-2xl font-bold"
                         : "text-slate-400 group-hover:text-slate-600  group-hover:ml-2 text-lg "
                     }`}
                   >
@@ -83,12 +90,24 @@ const SidebarNavbar = () => {
       </nav>
 
       {/* Footer */}
-      <div className="mb-8 space-y-4">
-        <div className="h-px bg-slate-100" />
-        <p className="text-xs leading-relaxed text-slate-400">
-          Creating thoughtful digital experiences with attention to detail and
-          user needs.
-        </p>
+      <div className="flex items-center justify-center mb-8 space-y-4">
+        <div className="flex gap-5">
+          <NextLink href="https://github.com/IssamKharbache">
+            <FaGithub
+              size={35}
+              className="hover:fill-amber-600 cursor-pointer hover:scale-150 duration-300"
+            />
+          </NextLink>
+          <NextLink
+            href="https://www.linkedin.com/in/issam-kharbache/
+"
+          >
+            <FaLinkedin
+              size={35}
+              className="hover:fill-amber-600 cursor-pointer hover:scale-150 duration-300"
+            />
+          </NextLink>
+        </div>
       </div>
     </aside>
   );

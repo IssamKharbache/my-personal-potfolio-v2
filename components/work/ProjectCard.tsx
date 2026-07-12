@@ -186,35 +186,37 @@ export function ProjectCard({ project, reversed = false }: ProjectCardProps) {
           custom={0.2}
           className="mt-10 flex items-center gap-8"
         >
-          <a
-            href={href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group inline-flex items-center gap-2 text-sm tracking-wide text-[#2D1F16]"
-          >
-            <span className="relative">
-              View project
-              <span className="absolute -bottom-0.5 left-0 h-px w-full origin-left scale-x-0 bg-[#2D1F16] transition-transform duration-300 ease-out group-hover:scale-x-100" />
-            </span>
-            <motion.svg
-              width="14"
-              height="14"
-              viewBox="0 0 14 14"
-              fill="none"
-              className="text-[#F59E0B]"
-              initial={{ x: 0 }}
-              whileHover={{ x: 3 }}
-              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+          {href && (
+            <a
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-2 text-sm tracking-wide text-[#2D1F16]"
             >
-              <path
-                d="M1 7H13M13 7L7.5 1.5M13 7L7.5 12.5"
-                stroke="currentColor"
-                strokeWidth="1.4"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </motion.svg>
-          </a>
+              <span className="relative">
+                View project
+                <span className="absolute -bottom-0.5 left-0 h-px w-full origin-left scale-x-0 bg-[#2D1F16] transition-transform duration-300 ease-out group-hover:scale-x-100" />
+              </span>
+              <motion.svg
+                width="14"
+                height="14"
+                viewBox="0 0 14 14"
+                fill="none"
+                className="text-[#F59E0B]"
+                initial={{ x: 0 }}
+                whileHover={{ x: 3 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              >
+                <path
+                  d="M1 7H13M13 7L7.5 1.5M13 7L7.5 12.5"
+                  stroke="currentColor"
+                  strokeWidth="1.4"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </motion.svg>
+            </a>
+          )}
 
           {githubHref && (
             <a
@@ -280,9 +282,7 @@ export function ProjectCard({ project, reversed = false }: ProjectCardProps) {
                 opacity: isHovering ? 1 : 0,
                 scale: isHovering ? 1 : 0.7,
               }}
-            >
-              View
-            </motion.div>
+            ></motion.div>
           )}
         </motion.div>
       </div>
