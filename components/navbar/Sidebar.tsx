@@ -43,7 +43,10 @@ const SidebarNavbar = () => {
       </div>
 
       {/* Navigation */}
-      <nav className="relative mt-12 flex-1" aria-label="Primary navigation">
+      <nav
+        className="relative mt-12 flex-1 py-8 px-5"
+        aria-label="Primary navigation"
+      >
         <ul className="space-y-2">
           {links.map((item) => {
             const isActive = active === item.link;
@@ -51,14 +54,14 @@ const SidebarNavbar = () => {
             const Icon = item.icon;
 
             return (
-              <li className={`${isActive ? "ml-5" : ""}`} key={item.link}>
+              <li key={item.link}>
                 <Link
                   to={item.link}
                   spy
                   smooth
                   offset={-100}
                   onSetActive={() => setActive(item.link)}
-                  className="group relative flex cursor-pointer items-center gap-6 py-3 focus-visible:outline-none"
+                  className="group relative flex cursor-pointer items-center gap-6 focus-visible:outline-none py-7 px-2"
                   aria-current={isActive ? "page" : undefined}
                 >
                   {/* Number */}
@@ -67,17 +70,17 @@ const SidebarNavbar = () => {
                       className={`text-xs font-medium ${
                         isActive
                           ? "text-amber-500  scale-150"
-                          : "text-slate-300 group-hover:text-slate-400"
+                          : "text-slate-300"
                       }`}
                     />
                   </span>
 
                   {/* Label */}
                   <span
-                    className={`font-medium   py-5 px-5  ${
+                    className={`font-medium rounded px-7 py-2 group-hover:bg-gray-100 group-hover:border-l-3 group-hover:border-amber-500 duration-100 ${
                       isActive
-                        ? "text-amber-500 text-2xl font-bold"
-                        : "text-slate-400 group-hover:text-slate-600  group-hover:ml-2 text-lg "
+                        ? "text-amber-500 text-2xl font-bold bg-gray-100 border-l-3 border-amber-500 ml-4  "
+                        : "text-slate-400 group-hover:text-slate-600 text-lg "
                     }`}
                   >
                     {item.name}
@@ -95,7 +98,7 @@ const SidebarNavbar = () => {
           <NextLink href="https://github.com/IssamKharbache">
             <FaGithub
               size={35}
-              className="hover:fill-amber-600 cursor-pointer hover:scale-150 duration-300"
+              className="text-gray-400 hover:fill-amber-600 cursor-pointer hover:scale-150 duration-300"
             />
           </NextLink>
           <NextLink
@@ -104,7 +107,7 @@ const SidebarNavbar = () => {
           >
             <FaLinkedin
               size={35}
-              className="hover:fill-amber-600 cursor-pointer hover:scale-150 duration-300"
+              className="text-gray-400 hover:fill-amber-600 cursor-pointer hover:scale-150 duration-300"
             />
           </NextLink>
         </div>

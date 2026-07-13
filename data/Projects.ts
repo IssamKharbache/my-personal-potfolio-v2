@@ -32,16 +32,17 @@ export const projects: Project[] = [
     href: "",
     githubHref: "https://github.com/IssamKharbache/point-batteries/",
   },
+
   {
-    id: "meals",
+    id: "gym",
     index: "03",
-    title: "Wholesomemeals",
+    title: "Fit gym",
     description:
-      "WholesomeMeals helps you discover, plan, and cook delicious recipes from around the world — all in one place.",
-    technologies: ["React", "Next.js", "TypeScript", "Postgres", "tailwindcss"],
-    image: "/wholsome.png",
-    imageAlt: "wholesomemeals hero",
-    href: "https://wholesomemeals.vercel.app/",
-    githubHref: "https://github.com/IssamKharbache/wholesomemeals",
+      "Modern responsive website showcasing gym deals, memberships, and promotions. Designed with Next.js for fast performance and a smooth user experience",
+    technologies: ["React", "TypeScript", "tailwindcss"],
+    image: "/fitgym.png",
+    imageAlt: "Fitgym hero",
+    href: "https://fitgyme.vercel.app/",
+    githubHref: "https://github.com/IssamKharbache/Gym-fit",
   },
 ];
