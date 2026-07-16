@@ -1,10 +1,7 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import { motion, Variants } from "framer-motion";
 import { useLoading } from "@/app/hooks/useLoading";
-
-const HeroScene = dynamic(() => import("../hero/HeroScene"), { ssr: false });
 
 const container: Variants = {
   hidden: {},
@@ -55,17 +52,6 @@ export default function Hero() {
       }}
       className="relative flex min-h-screen items-center justify-center overflow-hidden"
     >
-      {/* 3D LAYER — centered behind the text, full-bleed within the section */}
-      <motion.div
-        variants={scene}
-        initial="hidden"
-        animate={ready ? "show" : "hidden"}
-        className="pointer-events-none absolute inset-0 z-0"
-        style={{ WebkitMaskImage: fadeMask, maskImage: fadeMask }}
-      >
-        <HeroScene />
-      </motion.div>
-
       {/* CONTENT — full width, centered, no more left-column constraint */}
       <motion.div
         variants={container}
