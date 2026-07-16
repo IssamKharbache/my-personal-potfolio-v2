@@ -62,7 +62,7 @@ export function About() {
             custom={0}
             className="font-serif text-4xl leading-[1.05] tracking-tight text-[#2D1F16] md:text-5xl"
           >
-            Hey, I&apos;m [Name] — I build things for the web.
+            Hey, I&apos;m Issam, I like building things for the web.
           </motion.h3>
 
           <motion.p
@@ -88,7 +88,7 @@ export function About() {
             className="mt-4 max-w-xl text-lg leading-8 text-[#2D1F16]/70"
           >
             The part I like most is building the client&apos;s own dashboard or
-            CRM — the tool that lets them log in and manage their customers,
+            CRM ,the tool that lets them log in and manage their customers,
             orders, or content by themselves, instead of texting me every time
             something needs to change. Handing someone that kind of independence
             is a good feeling.
@@ -102,9 +102,9 @@ export function About() {
             custom={0.18}
             className="mt-4 max-w-xl text-lg leading-8 text-[#2D1F16]/70"
           >
-            I sweat the unglamorous stuff too — logins, permissions, what
-            happens when someone does something unexpected — because a site that
-            looks great but breaks the first week isn&apos;t finished.
+            I sweat the unglamorous stuff too, logins, permissions, what happens
+            when someone does something unexpected,because a site that looks
+            great but breaks the first week isn&apos;t finished.
           </motion.p>
 
           {/* Capabilities — no numbering, this isn't a sequence */}
